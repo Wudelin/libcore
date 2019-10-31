@@ -1,2 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wdl.core" />
+    package="com.wdl.core" >
+    <application>
+        <provider
+            android:name="com.wdl.core.provider.ContextProvider"
+            android:authorities="${applicationId}.context_provider"
+            android:exported="false"
+            android:multiprocess="true" />
+    </application>
+</manifest>

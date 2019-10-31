@@ -19,12 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <provider
-            android:name="com.wdl.core.provider.ContextProvider"
-            android:authorities="${applicationId}.context_provider"
-            android:exported="false"
-            android:multiprocess="true" />
     </application>
 
 </manifest>
