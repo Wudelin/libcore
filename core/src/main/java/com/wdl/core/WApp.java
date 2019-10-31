@@ -1,9 +1,9 @@
-package com.wdl.libcore;
+package com.wdl.core;
 
 import android.app.Application;
 
-import com.wdl.libcore.util.WActivityStack;
-import com.wdl.libcore.util.WProcessUtil;
+import com.wdl.core.util.WActivityStack;
+import com.wdl.core.util.WProcessUtil;
 
 @SuppressWarnings("unused")
 public abstract class WApp extends Application

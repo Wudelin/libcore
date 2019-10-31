@@ -1,8 +1,7 @@
-package com.wdl.libcore.util;
+package com.wdl.core.util;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Build;
@@ -10,8 +9,6 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Window;
 import android.view.WindowManager;
-
-import com.wdl.libcore.App;
 
 import java.util.Objects;
 

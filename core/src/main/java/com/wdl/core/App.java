@@ -1,7 +1,7 @@
-package com.wdl.libcore;
+package com.wdl.core;
 
-import com.wdl.libcore.util.WActivityStack;
-import com.wdl.libcore.util.WLogger;
+import com.wdl.core.util.WActivityStack;
+import com.wdl.core.util.WLogger;
 
 public class App extends WApp
 {

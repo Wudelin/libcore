@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Libcore</string>
-    <string name="lib_context_init_class">com.wdl.libcore.InitClass</string>
+    <string name="en_name">英文</string>
+    <string name="zh_name">中文</string>
 </resources>

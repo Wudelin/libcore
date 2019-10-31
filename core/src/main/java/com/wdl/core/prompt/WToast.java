@@ -1,11 +1,11 @@
-package com.wdl.libcore.prompt;
+package com.wdl.core.prompt;
 
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.wdl.libcore.util.WLibrary;
+import com.wdl.core.util.WLibrary;
 
 @SuppressWarnings("unused")
 public final class WToast extends WLibrary

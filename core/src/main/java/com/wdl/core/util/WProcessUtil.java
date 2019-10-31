@@ -1,4 +1,4 @@
-package com.wdl.libcore.util;
+package com.wdl.core.util;
 
 import android.app.ActivityManager;
 import android.content.Context;

@@ -1,9 +1,9 @@
-package com.wdl.libcore.util;
+package com.wdl.core.util;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import com.wdl.libcore.App;
+import com.wdl.core.App;
 
 /**
  * 获取APK版本号、版本名

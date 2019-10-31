@@ -1,10 +1,10 @@
-package com.wdl.libcore.util;
+package com.wdl.core.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.wdl.libcore.R;
+import com.wdl.core.R;
 
 
 @SuppressWarnings("unused")

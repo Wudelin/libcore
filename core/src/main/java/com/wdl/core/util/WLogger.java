@@ -1,4 +1,4 @@
-package com.wdl.libcore.util;
+package com.wdl.core.util;
 
 import android.text.TextUtils;
 import android.util.Log;

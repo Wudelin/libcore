@@ -1,11 +1,11 @@
-package com.wdl.libcore.provider;
+package com.wdl.core.provider;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import androidx.annotation.Nullable;
-import com.wdl.libcore.util.WLibrary;
+import com.wdl.core.util.WLibrary;
 
 
 public class ContextProvider extends ContentProvider
