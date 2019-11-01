@@ -26,4 +26,5 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':core')
+    //implementation 'com.github.Wudelin:libcore:v1.0.1'
 }

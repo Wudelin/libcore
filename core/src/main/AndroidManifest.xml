@@ -1,11 +1,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wdl.core" >
-    <application>
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.wdl.core">
+
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application android:usesCleartextTraffic="true"
+        tools:ignore="UnusedAttribute">
         <provider
             android:name="com.wdl.core.provider.ContextProvider"
             android:authorities="${applicationId}.context_provider"
             android:exported="false"
             android:multiprocess="true" />
-        
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.android7.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
     </application>
 </manifest>
