@@ -1,4 +1,14 @@
 # libcore
+
+Use
+--------
+
+```
+AndroidManifest.xml
+
+<application android:name="com.wdl.core.App"/>
+```
+
 Download
 --------
 
@@ -10,6 +20,6 @@ allprojects {
 	}
 }
 dependencies {
-	implementation 'com.github.Wudelin:libcore:v1.0.0'
+	implementation 'com.github.Wudelin:libcore:v1.0.1'
 }
 ```
