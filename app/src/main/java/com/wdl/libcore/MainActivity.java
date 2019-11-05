@@ -3,6 +3,7 @@ package com.wdl.libcore;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,9 +13,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.wdl.core.prompt.WToast;
+import com.wdl.core.util.ClipBoardUtil;
 import com.wdl.core.util.FileProvider;
 import com.wdl.core.util.IntentUtil;
 import com.wdl.core.util.LanguageUtil;
@@ -35,6 +39,8 @@ import static android.os.Environment.DIRECTORY_DCIM;
 public class MainActivity extends AppCompatActivity
 {
     private ImageView iv;
+    private EditText et;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -114,8 +120,32 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        et = findViewById(R.id.editText);
+        et.setOnLongClickListener(new View.OnLongClickListener()
+        {
+            @Override
+            public boolean onLongClick(View v)
+            {
+                ClipBoardUtil.setPlainText(et.getText());
+                return false;
+            }
+        });
+
+        textView = findViewById(R.id.textView);
+        textView.setOnLongClickListener(new View.OnLongClickListener()
+        {
+            @Override
+            public boolean onLongClick(View v)
+            {
+                textView.setText(ClipBoardUtil.getText());
+                return false;
+            }
+        });
+
     }
-    File file;
+
+    private File file;
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
