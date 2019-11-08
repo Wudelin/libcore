@@ -49,6 +49,12 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         //LanguageUtil.applyLang(Locale.ENGLISH);
         setContentView(R.layout.activity_main);
+        /**
+         * 限定参数
+         */
+        Test t = new Test();
+        int x = t.getActivityInfo(Test.GET_META_DATA);
+        /////////////////////////////////
         WLogger.e("MainActivity");
         WToast.show("MainActivity");
         WLogger.e("MainActivity" + WActivityStack.getInstance().getSize());
@@ -116,7 +122,7 @@ public class MainActivity extends AppCompatActivity
             {
                 String filename = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.CHINA)
                         .format(new Date()) + ".png";
-                 file = new File(Environment.getExternalStorageDirectory(), filename);
+                file = new File(Environment.getExternalStorageDirectory(), filename);
                 startActivityForResult(IntentUtil.getCaptureIntent(MainActivity.this, file), 0x02);
             }
         });
@@ -183,7 +189,7 @@ public class MainActivity extends AppCompatActivity
                 }
             } else if (requestCode == 0x02)
             {
-                Uri uri = FileProvider.getUriForFile(this,file);
+                Uri uri = FileProvider.getUriForFile(this, file);
                 if (uri != null)
                 {
                     InputStream is = null;
