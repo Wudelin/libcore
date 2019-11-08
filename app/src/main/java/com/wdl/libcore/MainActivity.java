@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.wdl.core.prompt.WToast;
 import com.wdl.core.util.ClipBoardUtil;
+import com.wdl.core.util.ColorUtil;
 import com.wdl.core.util.FileProvider;
 import com.wdl.core.util.IntentUtil;
 import com.wdl.core.util.LanguageUtil;
