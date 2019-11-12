@@ -8,6 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +25,7 @@ import java.util.concurrent.TimeUnit;
  * 2) CachedThreadPool 和 ScheduledThreadPool ： 允许的创建线程数量为Integer.MAX_VALUE，可能会创建大量的线程，从而导致 OOM。
  */
 @SuppressWarnings("unused")
-public class ExecutorManager<T>
+public final class ExecutorManager<T>
 {
     private static volatile ExecutorManager executorManager;
     /**
@@ -89,7 +90,7 @@ public class ExecutorManager<T>
                     1,
                     KEEP_ALIVE_TIME,
                     KEEP_ALIVE_TIME_UNIT,
-                    new LinkedBlockingDeque<Runnable>(10)
+                    new LinkedBlockingQueue<Runnable>(10)
             );
         }
         if (null == mNetExecutor)
@@ -99,7 +100,7 @@ public class ExecutorManager<T>
                     5,
                     KEEP_ALIVE_TIME,
                     KEEP_ALIVE_TIME_UNIT,
-                    new LinkedBlockingDeque<Runnable>(50)
+                    new LinkedBlockingQueue<Runnable>(50)
             );
         }
         if (null == mOtherExecutor)
@@ -109,7 +110,7 @@ public class ExecutorManager<T>
                     BEST_CORES,
                     KEEP_ALIVE_TIME,
                     KEEP_ALIVE_TIME_UNIT,
-                    new LinkedBlockingDeque<Runnable>(100)
+                    new LinkedBlockingQueue<Runnable>(100)
             );
         }
         if (null == mScheduleExecutor)
