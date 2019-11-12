@@ -12,11 +12,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.wdl.core.executor.ExecutorManager;
 import com.wdl.core.prompt.WToast;
 import com.wdl.core.util.ClipBoardUtil;
 import com.wdl.core.util.ColorUtil;
@@ -34,8 +36,8 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
-import static android.os.Environment.DIRECTORY_DCIM;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -146,6 +148,52 @@ public class MainActivity extends AppCompatActivity
             {
                 textView.setText(ClipBoardUtil.getText());
                 return false;
+            }
+        });
+
+        ExecutorManager.getExecutorManager().execute(ExecutorManager.ExType.IO, new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                WLogger.e("ExecutorManager IO:" + Thread.currentThread() + "");
+            }
+        });
+
+        ExecutorManager.getExecutorManager().execute(ExecutorManager.ExType.IO, new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                WLogger.e("ExecutorManager IO2:" + Thread.currentThread() + "");
+            }
+        });
+
+        ExecutorManager.getExecutorManager().execute(ExecutorManager.ExType.IO, new Callable()
+        {
+            @Override
+            public Object call() throws Exception
+            {
+                WLogger.e("ExecutorManager IO3: Callable" );
+                return null;
+            }
+        });
+
+        ExecutorManager.getExecutorManager().execute(ExecutorManager.ExType.NETWORK, new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                WLogger.e("ExecutorManager NETWORK:" + Thread.currentThread() + "");
+            }
+        });
+
+        ExecutorManager.getExecutorManager().execute(ExecutorManager.ExType.OTHER, new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                WLogger.e("ExecutorManager OTHER:" + Thread.currentThread() + "");
             }
         });
 
