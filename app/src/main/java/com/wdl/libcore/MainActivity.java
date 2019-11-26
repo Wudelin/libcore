@@ -266,4 +266,9 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
+
+    public void setting(View view)
+    {
+        startActivity(IntentUtil.getSettingIntent());
+    }
 }
