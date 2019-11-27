@@ -38,7 +38,11 @@ public final class DateUtil
             Calendar.MILLISECOND,
             Calendar.DAY_OF_YEAR,
             Calendar.WEEK_OF_YEAR,
-            Calendar.WEEK_OF_MONTH
+            Calendar.WEEK_OF_MONTH,
+            Calendar.DAY_OF_WEEK_IN_MONTH,
+            Calendar.HOUR,
+            Calendar.SECOND,
+            Calendar.DAY_OF_WEEK
     })
     @Retention(RetentionPolicy.SOURCE)
     @interface FieldValue
@@ -304,16 +308,45 @@ public final class DateUtil
      *              Calendar.DAY_OF_MONTH 当前月的日期
      *              Calendar.DATE 日
      *              Calendar.MINUTE 分钟
-     *              Calendar.HOUR_OF_DAY 时
-     *              Calendar.MILLISECOND 秒
+     *              Calendar.HOUR_OF_DAY 24小时制-时
+     *              Calendar.HOUR 12小时制
+     *              Calendar.SECOND 秒
+     *              Calendar.MILLISECOND 毫秒
      *              Calendar.DAY_OF_YEAR 一年的第几天
      *              Calendar.WEEK_OF_YEAR 一年的第几周
      *              Calendar.WEEK_OF_MONTH 一个月的第几周
+     *              Calendar.DAY_OF_WEEK 周几
+     *              Calendar.DAY_OF_WEEK_IN_MONTH 今天是本月的第几周
      * @return int
      */
     public static int get(@FieldValue final int field)
     {
         return getCalendar().get(field);
     }
+
+    /**
+     * 获取本年/月的最大天数
+     *
+     * @param field DAY_OF_MONTH DAY_OF_YEAR
+     * @return 最大天数
+     */
+    public static int getMax(@FieldValue final int field)
+    {
+        return getCalendar().getActualMaximum(field);
+    }
+
+    /**
+     * 获取本年/月的最小天数
+     *
+     * @param field DAY_OF_MONTH DAY_OF_YEAR
+     * @return 最小天数
+     */
+    public static int getMin(@FieldValue final int field)
+    {
+        return getCalendar().getActualMinimum(field);
+    }
+
+
+    //TODO 日期加减 - 日期判断
 
 }

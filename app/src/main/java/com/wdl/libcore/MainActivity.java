@@ -22,6 +22,7 @@ import com.wdl.core.executor.ExecutorManager;
 import com.wdl.core.prompt.WToast;
 import com.wdl.core.util.ClipBoardUtil;
 import com.wdl.core.util.ColorUtil;
+import com.wdl.core.util.DateUtil;
 import com.wdl.core.util.FileProvider;
 import com.wdl.core.util.IntentUtil;
 import com.wdl.core.util.LanguageUtil;
@@ -34,6 +35,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.Callable;
@@ -61,6 +63,15 @@ public class MainActivity extends AppCompatActivity
         WToast.show("MainActivity");
         WLogger.e("MainActivity" + WActivityStack.getInstance().getSize());
         WLogger.e("MainActivity" + WResUtil.dp2px(20) + "  " + WResUtil.getScreenWidth() + " " + WResUtil.getScreenHeight());
+
+        WLogger.e(DateUtil.date2String(new Date()));
+        WLogger.e(""+DateUtil.date2Mills(new Date()));
+        WLogger.e(DateUtil.mills2String(System.currentTimeMillis()));
+        WLogger.e(DateUtil.mills2Date(System.currentTimeMillis()).toString());
+        WLogger.e(""+DateUtil.get(Calendar.DATE));
+
+
+
         iv = findViewById(R.id.iv);
         findViewById(R.id.btn_en).setOnClickListener(new View.OnClickListener()
         {
