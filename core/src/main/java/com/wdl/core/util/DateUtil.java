@@ -29,7 +29,7 @@ import java.util.TimeZone;
 public final class DateUtil
 {
 
-    @IntDef(value = {
+    @IntDef(flag = true, value = {
             Calendar.YEAR,
             Calendar.MONTH,
             Calendar.DATE,
